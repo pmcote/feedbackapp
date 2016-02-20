@@ -17,6 +17,11 @@
         margin: 10px;
         padding: 15px;
         background: #d3d3d3;
+        border-radius: 5px;
+      }
+      .comment:hover {
+        background: #c3c3c3;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -25,7 +30,7 @@
       <div class="columns small-4" style="background:darkgrey">
         <h1>Comments</h1>
         <ul>
-          <li class="comment"> stuff</li>
+          <li class="comment" onclick="goto(55)" > stuff</li>
           <li class="comment">thing</li>
         </ul>
       </div>
@@ -40,7 +45,7 @@
 	   
       <!-- <iframe type="text/html" width="200" height="150" src="http://www.youtube.com/embed/PjDw3azfZWI?enablejsapi=1" frameborder="0"></iframe>
       <br /> -->
-      <button type="button" onclick="seek(30)">Seek forward 30 seconds</button>
+      <button onclick="seek(30)">Seek forward 30 seconds</button>
 
 	</div>
       </div>
@@ -65,6 +70,13 @@
     function seek(sec){
         if(player){
             seconds += sec;
+            player.seekTo(seconds, true);
+        }
+    }
+
+    function goto(sec){
+        if(player){
+            seconds = sec;
             player.seekTo(seconds, true);
         }
     }
