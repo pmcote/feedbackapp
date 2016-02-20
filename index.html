@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" href="css/foundation-flex.css" />
+    <link rel="stylesheet" href="css/foundation-6/css/foundation.css" />
+    <link rel="stylesheet" href="css/foundation-6/css/app.css" />
+    <link rel="stylesheet" href="css/foundation-6/css/foundation-flex.css" />
 
     <style>
       ul {
         list-style: none;
-      } 
+      }
       .comment {
         margin: 10px;
         padding: 15px;
@@ -37,7 +37,7 @@
      </div>
 	</div>
 	<div class="row">
-	   
+
       <!-- <iframe type="text/html" width="200" height="150" src="http://www.youtube.com/embed/PjDw3azfZWI?enablejsapi=1" frameborder="0"></iframe>
       <br /> -->
       <button type="button" onclick="seek(30)">Seek forward 30 seconds</button>
@@ -47,31 +47,10 @@
     </div>
 
     <script src="http://www.youtube.com/player_api"></script>
-    <script>
-    var player, seconds = 0;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            events: {
-              'onReady': onPlayerReady
-            }
-          });
-    }
-
-    function onPlayerReady(event) {
-        event.target.playVideo();
-    }
-
-
-    function seek(sec){
-        if(player){
-            seconds += sec;
-            player.seekTo(seconds, true);
-        }
-    }
-    </script>
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/what-input.min.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="css/foundation-6/js/vendor/jquery.min.js"></script>
+    <script src="css/foundation-6/js/vendor/what-input.min.js"></script>
+    <script src="css/foundation-6/js/foundation.min.js"></script>
+    <script src="css/foundation-6/js/app.js"></script>
   </body>
 </html>
