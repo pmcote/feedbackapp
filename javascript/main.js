@@ -25,3 +25,19 @@ function goto(sec){
         player.seekTo(seconds, true);
     }
 }
+
+// Handles adding a comment to the video, when you click the resulting comment, the video will go to the time posted
+var $CommentForm = $('form.comment-form').unbind();
+$CommentForm.submit(function handleComment(event){
+  event.preventDefault();
+  var $form = $(event.target);
+  var $commentAppend = $('.comment').first().clone();
+  var commentText = $form.find('input.comment-form-text').val();
+  $form.find('input.comment-form-text').val('');
+  var currentTime = player.getCurrentTime();
+  $commentAppend.attr('onClick', 'goto('+ currentTime +')');
+  $commentAppend.html(commentText);
+
+  $('.comments').append($commentAppend);
+
+});
