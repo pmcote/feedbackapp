@@ -1,13 +1,28 @@
 ul {
-  list-style: none;
-}
-.comment {
+  list-style: none; }
+
+.comment, .plus, .delta {
   margin: 10px;
   padding: 15px;
-  background: #d3d3d3;
+  background: #f3f3f3;
   border-radius: 5px;
-}
-.comment:hover {
-  background: #c3c3c3;
-  cursor: pointer;
-}
+  border-width: 2px;
+  border-style: solid; }
+
+.comment:hover, .plus:hover, .delta:hover {
+  background: #e3e3e3;
+  cursor: pointer; }
+
+.plus {
+  border-color: #5cd65c; }
+
+.delta {
+  border-color: #ea4848; }
+
+.desc {
+  display: none; }
+
+.readMore {
+  float: right; }
+
+/*# sourceMappingURL=main.css.map */
