@@ -1,6 +1,22 @@
 # feedbackapp
 School Shaped d+b 1 cycle - feedback app
 
+## Dependencies
+If you edit the Sass file `main.scss`, be sure to update the linked CSS sheet by running:
+```
+sass main.scss main.css
+```
+
+You will have to have Sass installed, and to install Sass you must have Ruby installed.
+To install Ruby:
+```
+sudo apt-get install ruby
+```
+Then to install Sass:
+```
+sudo su -c "gem install sass"
+```
+
 ## Components (focus on mocking these capabilities)
 * Ability to upload audio/video/text, focusing on video in this prototype
 * Ability to flag/annotate sections of media
@@ -18,6 +34,5 @@ School Shaped d+b 1 cycle - feedback app
 * Flag can include a category (“doing well”) or (“needs feedback”) and add comments to explain what they’re looking for
 * When they’re done, the site has a marked-up video that gets shared to admins
 * Admins can watch the whole video through if they choose, or just skip to flagged sections
-
 
 

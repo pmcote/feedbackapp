@@ -1,0 +1,35 @@
+ul {
+	list-style: none;
+}
+.comment {
+	margin: 10px;
+	padding: 15px;
+	background: #f3f3f3;
+	border-radius: 5px;
+	border-width: 2px;
+	border-style: solid;
+
+
+}
+.comment:hover {
+	background: #e3e3e3;
+	cursor: pointer;
+}
+
+.plus {
+	@extend .comment;
+	border-color: #5cd65c;
+}
+
+.delta {
+	@extend .comment;
+	border-color: #ea4848;
+}
+
+.desc {
+	display: none;
+}
+
+.readMore {
+	float: right;
+}

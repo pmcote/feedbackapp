@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="css/foundation-6/css/foundation.css" />
     <link rel="stylesheet" href="css/foundation-6/css/app.css" />
     <link rel="stylesheet" href="css/foundation-6/css/foundation-flex.css" />
@@ -12,15 +12,29 @@
   </head>
   <body>
     <div class="row">
-      <div class="columns small-4" style="background:darkgrey">
-        <h1>Comments</h1>
+      <div class="column">
+      <h1>Feedback App</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-4">
+        <h3>Comments</h3>
         <ul class="comments">
-          <li class="comment" onclick="goto(55)" > stuff</li>
-          <li class="comment">thing</li>
+          <li class="plus" onclick="goto(55)" >
+            <div class="readMore" onclick="openClose(stuff)">+</div>
+            <div id="info"><b>stuff</b> (0m55s)</div>
+            <div class="desc" id="stuff">More things about stuff</div>
+          </li>
+          <li class="delta" onclick="goto(12)">
+            <div class="readMore" onclick="openClose(thing)">+</div>
+            <div id="info"><b>thing</b> (0m12s)</div>
+            <div class="desc" id="thing">More stuff about things</div>
+          </li>
         </ul>
       </div>
-      <div class="columns" style="background:grey">
-        <h1>video shit</h1>
+      <div class="columns">
+        <h3>video shit</h3>
       	<div class="row">
           <div class="columns">
       	   <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/kZUPCB9533Y?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
@@ -30,15 +44,17 @@
 
       <!-- <iframe type="text/html" width="200" height="150" src="http://www.youtube.com/embed/PjDw3azfZWI?enablejsapi=1" frameborder="0"></iframe>
       <br /> -->
-          <button class="button" onclick="seek(30)">Seek forward 30 seconds</button>
-
+<!--           <button class="button" onclick="seek(30)">Seek forward 30 seconds</button>
+ -->
 	     </div>
        <div class="row">
        <div class="columns">
         <form class="comment-form">
-          <p>Comment</p>
-          <input class="comment-form-text" type="text">
-          <input type="submit" value="Submit">
+          <input type="radio" name="categ" value="plus" id="categPlus"><label for="categPlus">Plus</label>
+          <input type="radio" name="categ" value="delta" id="categDelta"><label for="categDelta">Delta</label>
+          <input class="comment-form-text" type="text" placeholder="Comment"></input>
+          <textarea class="comment-form-desc" type="text" rows="5" placeholder="Description (optional)"></textarea>
+          <input class="button" type="submit" value="Submit">
         </div>
       </div>
       </div>
