@@ -112,7 +112,7 @@ $CommentForm.submit(function handleComment(event){
   createReplies();
 });
 
+$('form.comment-form').validate();
+
 // // truncates comments
 // var $commentsSection = $('.comments').unbind();
-
-
