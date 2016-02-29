@@ -69,7 +69,7 @@ $CommentForm.submit(function handleComment(event){
 
 });
 
+$('form.comment-form').validate();
+
 // // truncates comments
 // var $commentsSection = $('.comments').unbind();
-
-
