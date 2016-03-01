@@ -17,19 +17,52 @@
       </div>
     </div>
 
+    <!-- Upload New video stuff -->
+    <!-- <div class="row">
+      <div class="newVideo">
+        <div class="columns">
+          <form class="new-video-text">  
+            <input class="new-video-text" type="text" placeholder="YouTube URL"/>
+            <input class="button" type="submit" value="Submit"/>
+          </form>
+        </div>
+      </div>
+    </div> -->
+
     <div class="row">
       <div class="columns small-4">
         <h3>Comments</h3>
         <ul class="comments">
           <li class="plus" onclick="goto(55)" >
             <div class="readMore" onclick="openClose(stuff)">+</div>
-            <div id="info"><b>This Went Well This Week!</b> (0m55s)</div>
-            <div class="desc" id="stuff">It really really did.</div>
+            <div id="info"><b>Mitch</b> says: <b>This part went well this week!</b> (0m55s)</div>
+            <div class="desc" id="stuff">
+              <p>Look at how well it went</p>
+              <ul class="all-replies" id="stuff"></ul>
+              <div class="repl" onclick="openReply()">Reply</div>
+              <form class="reply-form" style="display: none;">
+                <input class="name" type="text" placeholder="Name">
+                <input class="reply-text" type="text" placeholder="Reply to Comment">
+                <input class="button" type="submit" value="Reply">
+              </form>
+            </div>
           </li>
           <li class="delta" onclick="goto(12)">
             <div class="readMore" onclick="openClose(thing)">+</div>
-            <div id="info"><b>This Was Hard This Week</b> (0m12s)</div>
-            <div class="desc" id="thing">Do you have any feedback I could use to improve?</div>
+            <div id="info"><b>Paige</b> says: <b>I think I could have done better here</b> (0m12s)</div>
+            <div class="desc" id="thing">
+              <p>Do you have any feedback to improve?</p>
+              <ul class="all-replies" id="thing">
+                <li class="reply"><b>Anne</b> says: Try changing this thing</li>
+                <li class="reply"><b>Mitch</b> says: Don't worry, this seems fine</li>
+              </ul>
+              <div class="repl" onclick="openReply()">Reply</div>
+              <form class="reply-form" style="display: none;">
+                <input class="name" type="text" placeholder="Name">
+                <input class="reply-text" type="text" placeholder="Reply to Comment">
+                <input class="button" type="submit" value="Reply">
+              </form>
+            </div>
           </li>
         </ul>
       </div>
@@ -37,6 +70,7 @@
         <h3>Video</h3>
       	<div class="row">
           <div class="columns">
+          <!--https://www.youtube.com/watch?v=wOmjnioNulo-->
       	   <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/kZUPCB9533Y?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
            </div>
       	</div>
@@ -51,8 +85,9 @@
        <div class="columns">
         <form class="comment-form">
           <input type="radio" name="categ" value="plus" id="categPlus" required><label for="categPlus">Plus</label>
-          <input type="radio" name="categ" value="delta" id="categDelta"><label for="categDelta">Delta (required)</label>
-          <input class="comment-form-text" type="text" placeholder="Comment (required)" required></input>
+          <input type="radio" name="categ" value="delta" id="categDelta"><label for="categDelta">Delta</label>
+          <input class="comment-form-name" type="text" placeholder="Name" required></input>
+          <input class="comment-form-text" type="text" placeholder="Comment" required></input>
           <textarea class="comment-form-desc" type="text" rows="5" placeholder="Description (optional)"></textarea>
           <input class="button" type="submit" value="Submit">
         </div>

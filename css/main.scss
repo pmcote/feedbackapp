@@ -33,3 +33,22 @@ ul {
 .readMore {
 	float: right;
 }
+
+.newVideo input {
+	display: inline;
+}
+
+.repl {
+	text-decoration: underline;
+	font-size: 80%;
+	z-index: 5;
+}
+
+.reply {
+	background: #d3d3d3;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 80%;
+}
+
