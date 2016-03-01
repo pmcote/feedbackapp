@@ -89,25 +89,22 @@ $CommentForm.submit(function handleComment(event){
   $form.find('textarea.comment-form-desc').val('');
   $form.find('input.comment-form-name').val('');
   var currentTime = player.getCurrentTime();
-
+  var randId = Math.random().toString(36).slice(-5);
   $commentAppend.attr('onClick', 'goto('+ currentTime +')');
   $commentAppend.attr('class', categ);
 
   $commentAppend.find('#info').html('<b>'+name+'</b> says: <b>'+commentText + '</b> (' + formatSecString(currentTime)+')');
-  $commentAppend.find('div.readMore').attr('onClick', 'openClose('+commentText.replace(/\s+/g, '')+')');
-  $commentAppend.find('div.desc').attr('id', commentText.replace(/\s+/g, ''));
+  $commentAppend.find('div.readMore').attr('onClick', 'openClose('+randId+')');
+  $commentAppend.find('div.desc').attr('id', randId);
   $commentAppend.find('p').html(descText);
 
   $commentAppend.find('ul.all-replies').html(''); // erase comments
-  $commentAppend.find('ul.all-replies').attr('id', commentText.replace(/\s+/g, ''));
-
-  console.log($commentAppend.find('ul.all-replies').attr('id'));
-
-
-  console.log($commentAppend);
+  $commentAppend.find('ul.all-replies').attr('id', randId);
   //$commentAppend.text(commentText);
 
   $('.comments').append($commentAppend);
+
+  $(randId).hide(); // why doesn't this work
 
   createReplies();
 });
