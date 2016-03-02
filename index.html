@@ -11,9 +11,38 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div class="row">
-      <div class="column">
+    <!-- <div class="row">
+      <div class="columns">
       <h1>Feedback App</h1>
+      </div>
+      <div class="row">
+        <div class="name columns">
+        <p class="nav-text">Name</p>
+        </div>
+        <div class="shared columns">
+        <p class="nav-text">Shared</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Feedback App</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a class="drop-color">Shared With</a>
+            <ul class="menu vertical">
+              <li><a>Anne</a></li>
+              <li><a>Ben</a></li>
+              <li><a>Mitch</a></li>
+            </ul>
+          </li>
+          <li><a class="drop-color">Your Name</a></li>
+        </ul>
       </div>
     </div>
 
@@ -21,7 +50,7 @@
     <!-- <div class="row">
       <div class="newVideo">
         <div class="columns">
-          <form class="new-video-text">  
+          <form class="new-video-text">
             <input class="new-video-text" type="text" placeholder="YouTube URL"/>
             <input class="button" type="submit" value="Submit"/>
           </form>
@@ -74,13 +103,6 @@
       	   <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/kZUPCB9533Y?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
            </div>
       	</div>
-      	<div class="row">
-
-      <!-- <iframe type="text/html" width="200" height="150" src="http://www.youtube.com/embed/PjDw3azfZWI?enablejsapi=1" frameborder="0"></iframe>
-      <br /> -->
-<!--           <button class="button" onclick="seek(30)">Seek forward 30 seconds</button>
- -->
-	     </div>
        <div class="row">
        <div class="columns">
         <form class="comment-form">

@@ -13,6 +13,11 @@ ul {
   background: #e3e3e3;
   cursor: pointer; }
 
+.drop-color {
+  font-weight: bold;
+  color: black;
+}
+
 .plus {
   border-color: #0099ff; }
 
@@ -28,6 +33,19 @@ ul {
 .newVideo input {
   display: inline; }
 
+.name, .shared {
+  height: 3em;
+  margin: 5px;
+  background: #f3f3f3;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.nav-text {
+  margin: .5rem;
+}
+
 .repl {
   text-decoration: underline;
   font-size: 80%;
@@ -39,5 +57,9 @@ ul {
   padding: 10px;
   border-radius: 5px;
   font-size: 80%; }
+
+.top-bar {
+  margin-bottom: 1rem;
+}
 
 /*# sourceMappingURL=main.css.map */
