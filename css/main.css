@@ -1,6 +1,3 @@
-ul {
-  list-style: none; }
-
 .comment, .plus, .delta {
   margin: 10px;
   padding: 15px;
@@ -13,25 +10,16 @@ ul {
   background: #e3e3e3;
   cursor: pointer; }
 
-.drop-color {
-  font-weight: bold;
-  color: black;
-}
-
-.plus {
-  border-color: #0099ff; }
-
 .delta {
   border-color: #cc0403; }
 
 .desc {
   display: none; }
 
-.readMore {
-  float: right; }
-
-.newVideo input {
-  display: inline; }
+.drop-color {
+  font-weight: bold;
+  color: black;
+}
 
 .name, .shared {
   height: 3em;
@@ -45,6 +33,18 @@ ul {
 .nav-text {
   margin: .5rem;
 }
+
+.newVideo input {
+  display: inline;
+}
+
+.plus {
+  border-color: #0099ff;
+}
+
+.readMore {
+  float: right; }
+
 
 .repl {
   text-decoration: underline;
@@ -61,5 +61,8 @@ ul {
 .top-bar {
   margin-bottom: 1rem;
 }
+
+ul {
+  list-style: none; }
 
 /*# sourceMappingURL=main.css.map */
