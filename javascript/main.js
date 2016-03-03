@@ -30,10 +30,10 @@ function goto(sec, eid, buttonId){
 
 
 function openClose(eid, buttonId){
-  //this is way easier to do if the element that contains the button has an id that is identifiable. 
+  //this is way easier to do if the element that contains the button has an id that is identifiable.
   //Each button needs a unique ID and it has to be referenced in both the goto and the openClose calls.
     console.log(eid);
-    if ($(eid).css('display') == 'none') { 
+    if ($(eid).css('display') == 'none') {
         $(eid).show();
         $(buttonId).html("–");
     }
@@ -82,7 +82,7 @@ function createReplies() {
     var newreply = "<li class='reply'><b>"+name+"</b> says: "+reply+"</li>";
     $('ul.all-replies#'+$form.parent().attr('id')).append(newreply);
 
-    $form.hide(); 
+    $form.hide();
   });
 }
 
@@ -93,7 +93,7 @@ var $CommentForm = $('form.comment-form').unbind();
 $CommentForm.submit(function handleComment(event){
   event.preventDefault();
   var $form = $(event.target);
-  var $commentAppend = $('.comments li').first().clone(); // clones
+  var $commentAppend = $('.pluses li').first().clone(); // clones
   console.log($commentAppend);
   var name = $form.find('input.comment-form-name').val();
   var commentText = $form.find('input.comment-form-text').val();
@@ -103,7 +103,7 @@ $CommentForm.submit(function handleComment(event){
   $form.find('textarea.comment-form-desc').val('');
   $form.find('input.comment-form-name').val('');
   var currentTime = player.getCurrentTime();
-  var alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   var rand = alpha[Math.floor(Math.random() * alpha.length)];
   var randId = rand + Math.random().toString(36).slice(-5);
   var randIdopener = rand + Math.random().toString(36).slice(-5);
@@ -125,7 +125,11 @@ $CommentForm.submit(function handleComment(event){
   $commentAppend.find('ul.all-replies').attr('id', randId);
   //$commentAppend.text(commentText);
 
-  $('.comments').append($commentAppend);
+  if (categ === "plus"){
+    $('.pluses').append($commentAppend);
+  } else {
+    $('.deltas').append($commentAppend);
+  }
 
   //$(randId).hide(); // why doesn't this work
 

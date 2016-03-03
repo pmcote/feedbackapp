@@ -60,8 +60,8 @@
 
     <div class="row">
       <div class="columns small-4">
-        <h3>Comments</h3>
-        <ul class="comments">
+        <h3>Comments: Plus</h3>
+        <ul class="pluses">
           <li class="plus">
             <div class="readMore" id="openthis" onclick="openClose(stuff, openthis)">+</div>
             <div id="info" onclick="goto(55, stuff, openthis)"><b>Mitch</b> says: <b>This part went well this week!</b> (0m55s)</div>
@@ -76,24 +76,29 @@
               </form>
             </div>
           </li>
-          <li class="delta">
-            <div class="readMore" id="openthat" onclick="openClose(thing, openthat)">+</div>
-            <div id="info" onclick="goto(12, thing, openthat)"><b>Paige</b> says: <b>I think I could have done better here</b> (0m12s)</div>
-            <div class="desc" id="thing">
-              <p>Do you have any feedback to improve?</p>
-              <ul class="all-replies" id="thing">
-                <li class="reply"><b>Anne</b> says: Try changing this thing</li>
-                <li class="reply"><b>Mitch</b> says: Don't worry, this seems fine</li>
-              </ul>
-              <div class="repl" onclick="openReply()">Reply</div>
-              <form class="reply-form" style="display: none;">
-                <input class="name" type="text" placeholder="Name">
-                <input class="reply-text" type="text" placeholder="Reply to Comment">
-                <input class="button" type="submit" value="Reply">
-              </form>
-            </div>
-          </li>
         </ul>
+
+        <h3>Comments: Delta</h3>
+        <ul class="deltas">
+        <li class="delta">
+          <div class="readMore" id="openthat" onclick="openClose(thing, openthat)">+</div>
+          <div id="info" onclick="goto(12, thing, openthat)"><b>Paige</b> says: <b>I think I could have done better here</b> (0m12s)</div>
+          <div class="desc" id="thing">
+            <p>Do you have any feedback to improve?</p>
+            <ul class="all-replies" id="thing">
+              <li class="reply"><b>Anne</b> says: Try changing this thing</li>
+              <li class="reply"><b>Mitch</b> says: Don't worry, this seems fine</li>
+            </ul>
+            <div class="repl" onclick="openReply()">Reply</div>
+            <form class="reply-form" style="display: none;">
+              <input class="name" type="text" placeholder="Name">
+              <input class="reply-text" type="text" placeholder="Reply to Comment">
+              <input class="button" type="submit" value="Reply">
+            </form>
+          </div>
+        </li>
+      </ul>
+
       </div>
       <div class="columns">
         <h3>Video</h3>
