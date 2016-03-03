@@ -33,7 +33,7 @@ function openClose(eid, buttonId){
     if ($(eid).css('display') == 'none') { //this is way easier to do if the element that contains the button has an id that is identifiable. Each button needs a unique ID and it has to be referenced in both the goto and the openClose calls.
         $(eid).show();
 	$(buttonId).html("–");
-		
+
     }
     else {
         $(eid).hide();
@@ -42,7 +42,7 @@ function openClose(eid, buttonId){
 }
 
 function openReply() {
-  $(event.target).parent().find('form.reply-form').show();  
+  $(event.target).parent().find('form.reply-form').show();
 }
 
 function formatSecString(secs) {
@@ -74,7 +74,7 @@ function createReplies() {
     var newreply = "<li class='reply'><b>"+name+"</b> says: "+reply+"</li>";
     $('ul.all-replies#'+$form.parent().attr('id')).append(newreply);
 
-    $form.hide(); 
+    $form.hide();
   });
 }
 
@@ -85,7 +85,7 @@ var $CommentForm = $('form.comment-form').unbind();
 $CommentForm.submit(function handleComment(event){
   event.preventDefault();
   var $form = $(event.target);
-  var $commentAppend = $('li').first().clone(); // clones
+  var $commentAppend = $('.comments li').first().clone(); // clones
   var name = $form.find('input.comment-form-name').val();
   var commentText = $form.find('input.comment-form-text').val();
   var descText = $form.find('textarea.comment-form-desc').val();
