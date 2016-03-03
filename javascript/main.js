@@ -35,12 +35,7 @@ function openClose(eid, buttonId){
     console.log(eid);
     if ($(eid).css('display') == 'none') {
         $(eid).show();
-<<<<<<< HEAD
-	$(buttonId).html("–");
-
-=======
         $(buttonId).html("–");
->>>>>>> 50bd86af28e84ab4c5548bfd820124d1bd10d463
     }
     else {
         $(eid).hide();
@@ -98,11 +93,8 @@ var $CommentForm = $('form.comment-form').unbind();
 $CommentForm.submit(function handleComment(event){
   event.preventDefault();
   var $form = $(event.target);
-  var $commentAppend = $('.comments li').first().clone(); // clones
-<<<<<<< HEAD
-=======
+  var $commentAppend = $('.pluses li').first().clone(); // clones
   console.log($commentAppend);
->>>>>>> 50bd86af28e84ab4c5548bfd820124d1bd10d463
   var name = $form.find('input.comment-form-name').val();
   var commentText = $form.find('input.comment-form-text').val();
   var descText = $form.find('textarea.comment-form-desc').val();
@@ -111,7 +103,7 @@ $CommentForm.submit(function handleComment(event){
   $form.find('textarea.comment-form-desc').val('');
   $form.find('input.comment-form-name').val('');
   var currentTime = player.getCurrentTime();
-  var alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   var rand = alpha[Math.floor(Math.random() * alpha.length)];
   var randId = rand + Math.random().toString(36).slice(-5);
   var randIdopener = rand + Math.random().toString(36).slice(-5);
@@ -133,7 +125,11 @@ $CommentForm.submit(function handleComment(event){
   $commentAppend.find('ul.all-replies').attr('id', randId);
   //$commentAppend.text(commentText);
 
-  $('.comments').append($commentAppend);
+  if (categ === "plus"){
+    $('.pluses').append($commentAppend);
+  } else {
+    $('.deltas').append($commentAppend);
+  }
 
   //$(randId).hide(); // why doesn't this work
 
