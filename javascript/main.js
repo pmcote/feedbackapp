@@ -19,19 +19,37 @@ function seek(sec){
     }
 }
 
-function goto(sec){
+function goto(sec, eid){
     if(player){
         seconds = sec;
         player.seekTo(seconds, true);
+	player.pauseVideo();
+	openClose(eid, $(event.target));
     }
 }
 
-function openClose(eid) {
+function openClose(eid, liElement) {
     if ($(eid).css('display') == 'none') {
         $(eid).show();
+	if (liElement){
+	    console.log(liElement.find(".readMore").html());
+	    liElement.find(".readMore").html("-");
+	}
+	else{
+	    console.log("openClose, being called from goto")
+	    $(event.target).html("-");
+	}
     }
     else {
         $(eid).hide();
+	if (liElement){
+	    console.log(liElement.find(".readMore").html());
+	    liElement.find(".readMore").html("+");
+	}
+	else{
+	    console.log("openClose, being called from goto")
+	    $(event.target).html("+");
+	}
     }
 }
 
@@ -46,7 +64,7 @@ var $CommentForm = $('form.comment-form').unbind();
 $CommentForm.submit(function handleComment(event){
   event.preventDefault();
   var $form = $(event.target);
-  var $commentAppend = $('li').first().clone();
+  var $commentAppend = $('li').first().clone(); // clones
   var commentText = $form.find('input.comment-form-text').val();
   var descText = $form.find('textarea.comment-form-desc').val();
   var categ = $form.find("[name='categ']:checked").val();
