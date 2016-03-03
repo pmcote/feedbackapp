@@ -24,31 +24,28 @@ function goto(sec, eid){
         seconds = sec;
         player.seekTo(seconds, true);
 	player.pauseVideo();
-	openClose(eid, $(event.target));
+	openClose(eid, $(event.target).parent().find('.readMore'));
     }
 }
 
 
 function openClose(eid, liElement) {
+    console.log("liElement is:" + $(liElement).html());
     if ($(eid).css('display') == 'none') {
         $(eid).show();
 	if (liElement){
-	    console.log(liElement.find(".readMore").html());
-	    liElement.find(".readMore").html("-");
+	    liElement.html("–");
 	}
 	else{
-	    console.log("openClose, being called from goto")
-	    $(event.target).html("-");
+	    $(event.target).html("–");
 	}
     }
     else {
         $(eid).hide();
 	if (liElement){
-	    console.log(liElement.find(".readMore").html());
-	    liElement.find(".readMore").html("+");
+	    liElement.html("+");
 	}
 	else{
-	    console.log("openClose, being called from goto")
 	    $(event.target).html("+");
 	}
     }
