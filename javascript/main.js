@@ -19,35 +19,25 @@ function seek(sec){
     }
 }
 
-function goto(sec, eid){
+function goto(sec, eid, buttonId){
     if(player){
         seconds = sec;
         player.seekTo(seconds, true);
 	player.pauseVideo();
-	openClose(eid, $(event.target).parent().find('.readMore')) //as a result of this .parent() part of the command, if $(event.target) is further nested in another container (even span containers like <b>), then it doesn't call to openClose correctly.;
+	openClose(eid, buttonId);
     }
 }
 
 
-function openClose(eid, liElement) {
-    console.log("liElement is:" + $(liElement).html());
-    if ($(eid).css('display') == 'none') {
+function openClose(eid, buttonId){
+    if ($(eid).css('display') == 'none') { //this is way easier to do if the element that contains the button has an id that is identifiable. Each button needs a unique ID and it has to be referenced in both the goto and the openClose calls.
         $(eid).show();
-	if (liElement){ //the idea here is that goto() might call this function, and if it does, it will call it with a named element. If that's the case, we just replace that text with the appropriate symbol.
-	    liElement.html("–");
-	}
-	else{ //here, the function is likely being called by clicking the "button" itself, and therefore we just use $(event.target)
-	    $(event.target).html("–");
-	}
+	$(buttonId).html("–");
+		
     }
     else {
         $(eid).hide();
-	if (liElement){ //this works the same as above.
-	    liElement.html("+");
-	}
-	else{
-	    $(event.target).html("+");
-	}
+	$(buttonId).html("+");
     }
 }
 

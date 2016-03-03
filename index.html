@@ -63,8 +63,8 @@
         <h3>Comments</h3>
         <ul class="comments">
           <li class="plus">
-            <div class="readMore" onclick="openClose(stuff)">+</div>
-            <div id="info" onclick="goto(55, stuff)"><b>Mitch</b> says: <b>This part went well this week!</b> (0m55s)</div>
+            <div class="readMore" id="openthis" onclick="openClose(stuff, openthis)">+</div>
+            <div id="info" onclick="goto(55, stuff, openthis)"><b>Mitch</b> says: <b>This part went well this week!</b> (0m55s)</div>
             <div class="desc" id="stuff">
               <p>Look at how well it went</p>
               <ul class="all-replies" id="stuff"></ul>
@@ -77,8 +77,8 @@
             </div>
           </li>
           <li class="delta">
-            <div class="readMore" onclick="openClose(thing)">+</div>
-            <div id="info" onclick="goto(12, thing)"><b>Paige</b> says: <b>I think I could have done better here</b> (0m12s)</div>
+            <div class="readMore" id="openthat" onclick="openClose(thing, openthat)">+</div>
+            <div id="info" onclick="goto(12, thing, openthat)"><b>Paige</b> says: <b>I think I could have done better here</b> (0m12s)</div>
             <div class="desc" id="thing">
               <p>Do you have any feedback to improve?</p>
               <ul class="all-replies" id="thing">
