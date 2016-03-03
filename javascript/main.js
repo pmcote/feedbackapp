@@ -23,26 +23,28 @@ function goto(sec, eid, buttonId){
     if(player){
         seconds = sec;
         player.seekTo(seconds, true);
-	player.pauseVideo();
-	openClose(eid, buttonId);
+      	player.pauseVideo();
+      	openClose(eid, buttonId);
     }
 }
 
 
 function openClose(eid, buttonId){
-    if ($(eid).css('display') == 'none') { //this is way easier to do if the element that contains the button has an id that is identifiable. Each button needs a unique ID and it has to be referenced in both the goto and the openClose calls.
+  //this is way easier to do if the element that contains the button has an id that is identifiable. 
+  //Each button needs a unique ID and it has to be referenced in both the goto and the openClose calls.
+    console.log(eid);
+    if ($(eid).css('display') == 'none') { 
         $(eid).show();
-	$(buttonId).html("–");
-		
+        $(buttonId).html("–");
     }
     else {
         $(eid).hide();
-	$(buttonId).html("+");
+        $(buttonId).html("+");
     }
 }
 
 function openReply() {
-  $(event.target).parent().find('form.reply-form').show();  
+  $(event.target).parent().find('form.reply-form').show();
 }
 
 function formatSecString(secs) {
@@ -85,7 +87,8 @@ var $CommentForm = $('form.comment-form').unbind();
 $CommentForm.submit(function handleComment(event){
   event.preventDefault();
   var $form = $(event.target);
-  var $commentAppend = $('li').first().clone(); // clones
+  var $commentAppend = $('.comments li').first().clone(); // clones
+  console.log($commentAppend);
   var name = $form.find('input.comment-form-name').val();
   var commentText = $form.find('input.comment-form-text').val();
   var descText = $form.find('textarea.comment-form-desc').val();
@@ -94,12 +97,21 @@ $CommentForm.submit(function handleComment(event){
   $form.find('textarea.comment-form-desc').val('');
   $form.find('input.comment-form-name').val('');
   var currentTime = player.getCurrentTime();
-  var randId = Math.random().toString(36).slice(-5);
-  $commentAppend.attr('onClick', 'goto('+ currentTime +')');
+  var alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var rand = alpha[Math.floor(Math.random() * alpha.length)];
+  var randId = rand + Math.random().toString(36).slice(-5);
+  var randIdopener = rand + Math.random().toString(36).slice(-5);
+
+  console.log(randId);
+  console.log(randIdopener);
+
   $commentAppend.attr('class', categ);
 
   $commentAppend.find('#info').html('<b>'+name+'</b> says: <b>'+commentText + '</b> (' + formatSecString(currentTime)+')');
-  $commentAppend.find('div.readMore').attr('onClick', 'openClose('+randId+')');
+  var gotostring = 'goto('+ currentTime +','+randId+','+randIdopener+')';
+  $commentAppend.find('#info').attr('onClick', gotostring);
+  $commentAppend.find('div.readMore').attr('id', randIdopener);
+  $commentAppend.find('div.readMore').attr('onClick', 'openClose('+randId+','+randIdopener+')');
   $commentAppend.find('div.desc').attr('id', randId);
   $commentAppend.find('p').html(descText);
 
@@ -109,7 +121,7 @@ $CommentForm.submit(function handleComment(event){
 
   $('.comments').append($commentAppend);
 
-  $(randId).hide(); // why doesn't this work
+  //$(randId).hide(); // why doesn't this work
 
   createReplies();
 });
