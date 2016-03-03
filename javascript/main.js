@@ -44,7 +44,13 @@ function openClose(eid, buttonId){
 }
 
 function openReply() {
-  $(event.target).parent().find('form.reply-form').show();
+  var $replyform = $(event.target).parent().find('form.reply-form');
+  if ($replyform.css('display') == 'none') {
+    $replyform.show();
+  }
+  else {
+    $replyform.hide();
+  }
 }
 
 function formatSecString(secs) {
