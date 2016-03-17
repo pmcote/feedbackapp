@@ -28,7 +28,9 @@ app.set('view engine', 'handlebars');
 
 
 /* ROUTING */
-app.get('/', index.home);
+app.get('/', index.video);
+
+app.post('/newVideo', index.newVideo);
 
 app.listen(process.env.PORT || 3000);
 console.log("Running on port 3000");
