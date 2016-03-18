@@ -71,7 +71,10 @@ $newvideoform.submit(function uploadNew(event) {
     // This is where we do something with the video
     console.log('added new video');
   })
-  .error(console.log('error on newvideoform'));
+  .error(function(data, status) {
+	// Default error callback
+    	console.log('Error!' + data);
+	});
 
   // This commented code inserts the video directly into the player. We probably want the success of our post to add it to a drop down? idk.
   // l = videoURL.length;
@@ -99,7 +102,10 @@ function createReplies() {
 
       $form.hide();
     })
-    .error(console.log('error on newReply'));
+    .error(function(data, status) {
+	// Default error callback
+    	console.log('Error!' + data);
+	  });
 
   });
 }
@@ -157,7 +163,10 @@ $CommentForm.submit(function handleComment(event){
 
     createReplies();
   })
-  .error(console.log('error on newComment'));
+  .error(function(data, status) {
+	// Default error callback
+    	console.log('Error!' + data);
+	});
 });
 
 $('form.comment-form').validate();
