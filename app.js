@@ -31,6 +31,8 @@ app.set('view engine', 'handlebars');
 app.get('/', index.video);
 
 app.post('/newVideo', index.newVideo);
+app.post('/newComment', index.newComment);
+app.post('/newReply', index.newReply);
 
 app.listen(process.env.PORT || 3000);
 console.log("Running on port 3000");
