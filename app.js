@@ -29,6 +29,7 @@ app.set('view engine', 'handlebars');
 
 /* ROUTING */
 app.get('/', index.video);
+// app.get('/getComments', index.getComments)
 
 app.post('/newVideo', index.newVideo);
 app.post('/newComment', index.newComment);

@@ -59,6 +59,12 @@ function formatSecString(secs) {
     return mins+"m"+se+"s";
 }
 
+// function populateComments() {
+//   $.get("getComments", {
+//     videoID: $('.videoholder').attr('id')
+//   })
+// }
+
 var $newvideoform = $('form.new-video-text').unbind();
 $newvideoform.submit(function uploadNew(event) {
   event.preventDefault();
@@ -68,7 +74,12 @@ $newvideoform.submit(function uploadNew(event) {
   postData.name = $form.find('input.new-video-name').val();
   $.post('newVideo', postData)
   .done(function(data) {
-    // This is where we do something with the video
+    l = data.url.length;
+    var newsrc = 'https://www.youtube.com/embed/' + data.url.substring(l-11,l) + '?enablejsapi=1';
+    $('#player').attr('src', newsrc);
+
+    $('.videoholder').attr('id', data.id);
+
     console.log('added new video');
   })
   .error(function(data, status) {
@@ -92,6 +103,7 @@ function createReplies() {
     var reply = $form.find('input.reply-text').val();
     postData.name = name;
     postData.reply = reply;
+    postData.commentId = $form.parent().parent().attr('id');
     $form.find('input.name').val('');
     $form.find('input.reply-text').val('');
 
@@ -128,6 +140,7 @@ $CommentForm.submit(function handleComment(event){
   postData.desc = desc;
   postData.category = category;
   postData.timestamp = timestamp;
+  postData.videoID = $('.videoholder').attr('id');
   $form.find('input.comment-form-text').val('');
   $form.find('textarea.comment-form-desc').val('');
   $form.find('input.comment-form-name').val('');
@@ -152,6 +165,9 @@ $CommentForm.submit(function handleComment(event){
     $commentAppend.find('ul.all-replies').html(''); // erase comments
     $commentAppend.find('ul.all-replies').attr('id', randId);
     //$commentAppend.text(commentText);
+
+    console.log(data.id);
+    $commentAppend.attr('id', data.id);
 
     if (category === "plus"){
       $('.pluses').append($commentAppend);
