@@ -7,6 +7,8 @@ var Reply = require('./../models/replyModel.js');
 routes.video = function(req, res) {
   // TODO: get first video in list
 
+  // console.log(req.query);
+
   // var videoID = req.params.videoID; // This could also be name. That might be more useful for our demo, but this is more robust.
   //var tempID = '56ec6d6a4c0fb046a0f5f182';
   // Find Video information, populating comments and replies. Pass to handlebars.
@@ -15,17 +17,26 @@ routes.video = function(req, res) {
   // populate:{path: 'replies', model: 'Reply'}})
   // .exec(function(err, video) {console.log(util.inspect(video, false, null));});
 
-  Video.findOne()
-  .populate({path: 'comments', model: 'Comment',
-  populate:{path: 'replies', model: 'Reply'}})
-  .exec(function(err, video) {
-    console.log(video);
-    var l = video.url.length;
-    var newsrc = 'https://www.youtube.com/embed/' + video.url.substring(l-11,l) + '?enablejsapi=1';
-    res.render('home', {vidsrc: newsrc, vidid: video._id});
+  // else {
+    Video.findOne()
+    .populate({path: 'comments', model: 'Comment',
+    populate:{path: 'replies', model: 'Reply'}})
+    .exec(function(err, video) {
+      if (video) {
+        //console.log(video);
+        console.log(video.comments);
+        var l = video.url.length;
+        var newsrc = 'https://www.youtube.com/embed/' + video.url.substring(l-11,l) + '?enablejsapi=1';
+        res.render('home', {vidsrc: newsrc, vidid: video._id});
 
-    console.log(util.inspect(video, false, null));
-  });
+        //console.log(util.inspect(video, false, null));
+      }
+      else {
+         res.render('home', {vidsrc: "", vidid: ""});
+      }
+    });
+  // }
+ 
 },
 
 routes.newVideo = function(req, res) {
@@ -50,6 +61,7 @@ routes.newComment = function(req, res) {
   comment.user = req.body.user;
   comment.text = req.body.text;
   comment.desc = req.body.desc;
+  comment.timestamp = req.body.timestamp;
   comment.category = req.body.category;
   console.log('comment', comment);
   // Save comment and get comment _id
@@ -75,6 +87,7 @@ routes.newComment = function(req, res) {
 
 routes.newReply = function(req, res) {
   var commentID = req.body.commentID;
+  console.log(commentID);
 
   //var tempID = '56ec6dbb04491258a00f3377'; // This will also be a capture of the comment ID, we may want to make mongoose _id a class in Handlebars
   // Save reply and get reply _id
@@ -98,18 +111,46 @@ routes.newReply = function(req, res) {
   });
 
   res.send(replyObj);
-}
+},
 
-// routes.getComments = function(req, res) {
-//   videoID = req.query.videoID;
-//   Video.find({'_id': videoID})
-//   .exec(function(err, video) {
-//     var commentslist = [];
-//     for (var i=0; i<video.comments.length; i++) {
-//       commentslist.push({video.comments[i].name);
-//     }
-//     res.send(list);
-//   });
-// }
+routes.getComments = function(req, res) {
+  videoID = req.query.videoID;
+  console.log(videoID);
+  Video.findOne({'_id': videoID})
+  .populate({path: 'comments', model: 'Comment',
+  populate:{path: 'replies', model: 'Reply'}})
+  .exec(function(err, video) {
+    if (video) {
+      console.log(video.comments);
+      res.json(video.comments);
+    }
+  });
+},
+
+routes.getVideos = function(req, res) {
+  Video.find()
+  .exec(function(err, videos) {
+    res.json(videos);
+  });
+},
+
+routes.byVideo = function(req, res) {
+  if (req.params.videoid) {
+    Video.findOne({'_id': req.params.videoid})
+    .populate({path: 'comments', model: 'Comment',
+    populate:{path: 'replies', model: 'Reply'}})
+    .exec(function(err, video) {
+      if (video) {
+        //console.log(video);
+        console.log(video.comments);
+        var l = video.url.length;
+        var newsrc = 'https://www.youtube.com/embed/' + video.url.substring(l-11,l) + '?enablejsapi=1';
+        res.render('home', {vidsrc: newsrc, vidid: video._id});
+        console.log("HELLLLLLLA");
+        //console.log(util.inspect(video, false, null));
+      }
+    });
+  }
+}
 
 module.exports = routes;

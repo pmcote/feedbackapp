@@ -7,6 +7,11 @@
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
       <li>
+        <a class="drop-color">Videos</a>
+        <ul class="menu vertical" id="videolist">
+        </ul>
+      </li>
+      <li>
         <a class="drop-color">Shared With</a>
         <ul class="menu vertical">
           <li><a>Anne</a></li>
@@ -20,14 +25,34 @@
   </div>
 </div>
 
+<li id="template" class="delta" style="display: none">
+  <div class="readMore" id="openthat" onclick="openClose(thing, openthat)">+</div>
+  <div id="info" onclick="goto(441, thing, openthat)"><b>Paige</b> says: <b>I think I could have done better here</b> (7m21s)</div>
+  <div class="desc" id="thing">
+    <p>Do you have any feedback to improve?</p>
+    <ul class="all-replies" id="thing">
+      <li class="reply"><b>Anne</b> says: Try changing this thing</li>
+      <li class="reply"><b>Mitch</b> says: Don't worry, this seems fine</li>
+    </ul>
+    <div class="repl" onclick="openReply()">Reply</div>
+    <form class="reply-form" style="display: none;">
+      <input class="name" type="text" placeholder="Name">
+      <input class="reply-text" type="text" placeholder="Reply to Comment">
+      <input class="button" type="submit" value="Reply">
+    </form>
+  </div>
+</li>
+
 <!-- Upload New video stuff -->
 <div class="row">
   <div class="newVideo">
     <div class="columns">
       <form class="new-video-text">
-        <input class="new-video-name" type="text" placeholder="Name for Video"/>
-        <input class="new-video-text" type="text" placeholder="YouTube URL"/>
-        <input class="button" type="submit" value="Submit"/>
+        <ul class="newvideolist">
+          <li><input class="new-video-name" type="text" placeholder="Name for Video"/></li>
+          <li><input class="new-video-text" type="text" placeholder="YouTube URL"/></li>
+          <li><input class="button" type="submit" value="New Video"/></li>
+        </ul>
       </form>
     </div>
   </div>
@@ -37,7 +62,7 @@
   <div class="columns small-4">
     <h3>Comments: Plus</h3>
     <ul class="pluses">
-      <li class="plus">
+      <!-- <li class="plus">
         <div class="readMore" id="openthis" onclick="openClose(stuff, openthis)">+</div>
         <div id="info" onclick="goto(61, stuff, openthis)"><b>Mitch</b> says: <b>This part went well this week!</b> (1m1s)</div>
         <div class="desc" id="stuff">
@@ -50,12 +75,12 @@
             <input class="button" type="submit" value="Reply">
           </form>
         </div>
-      </li>
+      </li> -->
     </ul>
 
     <h3>Comments: Delta</h3>
     <ul class="deltas">
-    <li class="delta">
+    <!-- <li class="delta">
         <div class="readMore" id="openthat" onclick="openClose(thing, openthat)">+</div>
         <div id="info" onclick="goto(441, thing, openthat)"><b>Paige</b> says: <b>I think I could have done better here</b> (7m21s)</div>
         <div class="desc" id="thing">
@@ -71,7 +96,7 @@
             <input class="button" type="submit" value="Reply">
           </form>
         </div>
-      </li>
+      </li> -->
   </ul>
 
   </div>
