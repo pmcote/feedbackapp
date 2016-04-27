@@ -13,7 +13,7 @@ var index = require('./routes/index.js');
 
 
 /* CONNECT TO MONGOOSE */
-mongoose.connect(process.env.MONGOURI || 'mongodb://localhost/test');
+mongoose.connect(process.env.MONGODB_URI);
 
 
 /* CONFIG APP */
